@@ -1,0 +1,72 @@
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+h1 { 
+	font-size: 3rem;
+	color: orangered; 
+	margin-bottom: -20px; 
+} 
+h2{
+	color: black;
+	font-size: 1.2rem;
+	margin-bottom: 0;
+}
+p { 
+	margin-bottom: 0; 
+} 
+.ui { 
+	display: flex; 
+	flex-direction: column; 
+	align-items: center; 
+} 
+.row { 
+	display: flex; 
+} 
+.cell { 
+	width: 100px; 
+	height: 100px; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	font-size: 24px; 
+	text-align: center; 
+	cursor: pointer; 
+	background-color: beige;
+	border: 1px solid gray; 
+} 
+.cell:active { 
+	outline: none; 
+} 
+/* 3*3 Grid */
+
+/* Reset Button */
+#but { 
+	box-sizing: border-box; 
+	width: 95px; 
+	height: 40px; 
+	border: 1px solid dodgerblue; 
+	margin-left: auto; 
+	border-radius: 8px;
+
+	background-color: whitesmoke; 
+	color: dodgerblue; 
+	font-size: 20px; 
+	cursor: pointer; 
+} 
+
+/* Player turn space */
+#print { 
+	color: dodgerblue; 
+	font-size: 20px; 
+} 
+
+/* Main Container */
+#main { 
+	text-align: center; 
+} 
+
+/* Game Instruction Text */
+#ins { 
+	color: dodgerblue; 
+}
