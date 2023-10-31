@@ -45,7 +45,7 @@ EventListeners-Pro-Max-Tic-Tac-Toe/
 1. Clone this repository to your local machine:
 
 ```
-git clone https://github.com/your-username/EventListeners-Pro-Max-Tic-Tac-Toe.git
+git clone https://github.com/webgaurav02/TicTacToe-EventListenersProMax.git
 ```
 
 2. Open the `index.html` file in your web browser to start playing the game.
