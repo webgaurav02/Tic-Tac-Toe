@@ -7,10 +7,7 @@
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="tic.css" />
 	<!-- FontAwesome -->
-	<script
-      src="https://kit.fontawesome.com/d58ef74508.js"
-      crossorigin="anonymous"
-    ></script>
+	<script src="https://kit.fontawesome.com/d58ef74508.js" crossorigin="anonymous"></script>
 	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,19 +20,20 @@
 	<h1>TIC TAC TOE</h1>
 	<h2>by EventListeners Pro Max</h2>
 	<div id="start-screen">
-		<form id="players">
-			<label for="p-1">Player 1:</label><br>
-			<input type="text" id="p-1" name="p-1"><br><br>
-			<label for="p-2">Player 2:</label><br>
-			<input type="text" id="p-2" name="p-2"><br><br>
+		<form id="players" action="POST">
+			<label for="p-1">Player 1:</label><br />
+			<input type="text" id="p-1" name="p-1" placeholder="Player 1" /><br /><br />
+			<label for="p-2">Player 2:</label><br />
+			<input type="text" id="p-2" name="p-2" placeholder="Player 2" /><br /><br />
+			<input type="submit" value="Start Game" id="start-but" />
 		</form>
-		<button id="start-but" onclick="start()">Start Game</button>
 	</div>
 	<div id="main">
 		<p id="ins">
-			<br /><br />First Player starts as
-			<b>Player <i class="fa-solid fa-x"></i> </b>And Second Player as
-			<b>Player <i class="fa-solid fa-o"></i> </b>
+			<br /><br />
+			<b id="player1-label">First Player</b> starts as
+			<b><i class="fa-solid fa-x fa-xl"></i> </b><br><br><b id="player2-label">Second Player</b> starts as
+			<b><i class="fa-solid fa-o fa-xl"></i> </b>
 		</p>
 		<br /><br />
 		<div class="ui">
@@ -62,9 +60,24 @@
 		<p id="print"></p>
 	</div>
 
+	<!-- Winner -->
+	<div id="win-screen"></div>
+
 	<!-- Scoreboards -->
 	<div id="scoreboard">
-
+		<div id="table-con">
+			<table id="scoretable">
+				<tr>
+					<th id="nameP1">Player 1</th>
+					<th id="nameP2">Player 2</th>
+				</tr>
+				<tr>
+					<td id="pointsP1">1</td>
+					<td id="pointsP2">1</td>
+				</tr>
+			</table>
+		</div>
+		<button id="ret-but" onclick="reset()">RETURN TO GAME</button>
 	</div>
 	<script src="index.js"></script>
 </body>

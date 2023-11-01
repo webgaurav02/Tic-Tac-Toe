@@ -12,36 +12,43 @@ const winningCombos = [
 ];
 
 let b = ["", "", "", "", "", "", "", "", ""]; //Array to store all cell values
-let p1Name, p2Name;
-let winCount = [0, 0]; //0-O 1-X
+let points = [0, 0]; //0-O 1-X
+let p1Name, p2Name
 // function start(){
 // 	let page = document.getElementById("main");
 // 	page.style.display = "block";
 // }
 
+
 function start() {
 	const startS = document.getElementById("start-screen");
 	const mainS = document.getElementById("main");
-
-	// Add a click event listener to the Start button
 	startS.style.display = "none";
 	mainS.style.display = "block";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-
 	const form = document.getElementById("players");
-
-	form.addEventListener("players", function (event) {
+	form.addEventListener("submit", function (event) {
 		event.preventDefault(); // Prevent the default form submission
 		const formData = new FormData(form);
 		// Access individual form fields by name
 		p1Name = formData.get("p-1");
 		p2Name = formData.get("p-2");
-		console.log(p1Name);
-		console.log(p2Name);
+		if(p1Name==""){
+			p1Name = "Player 1";
+		}
+		if(p2Name==""){
+			p2Name = "Player 2";
+		}
+		const player1Label = document.getElementById("player1-label");
+		const player2Label = document.getElementById("player2-label");
+		player1Label.textContent = `${p1Name} `;
+		player2Label.textContent = `${p2Name} `;
+		// console.log(p1Name);
+		// console.log(p2Name);
+		start();
 	});
-
 });
 
 function reset() {
@@ -52,10 +59,23 @@ function reset() {
 		ele.disabled = false;
 		ele.value = "";
 		ele.style.color = "black";
-		flag = 1;  
-
+		flag = 1;
+		document.getElementById("print").innerHTML = "";
+		let winScn = document.getElementById("win-screen");
+		winScn.style.display = "none";
 	}
 	b = ["", "", "", "", "", "", "", "", ""];
+}
+
+function scBd() {
+	document.getElementById("win-screen").style.display = "none";
+	document.getElementById("main").style.display = "none";
+	let scoreboard = document.getElementById("scoreboard");
+	scoreboard.style.display = "block";
+	document.getElementById("nameP1").innerHTML = p1Name;
+	document.getElementById("nameP2").innerHTML = p2Name;
+	document.getElementById("pointsP1").innerHTML = points[1];
+	document.getElementById("pointsP2").innerHTML = points[0];
 }
 
 function lock(x, y, z) {
@@ -104,13 +124,21 @@ function tic(n) {
 		b[i] = document.getElementById("b" + (i + 1)).value;
 	}
 
-	let display = document.getElementById("print");
-	
+	let winScn = document.getElementById("win-screen");
+
 	if (Win(player)) {
-		display.innerHTML = "Player " + player + " won";
-		winCount[flag]++;
+		let winner =(player=="X")?p1Name:p2Name;
+		winScn.style.display = "block";
+		winScn.innerHTML = winner + " won";
+		winScn.innerHTML += '<br><button id="but" onclick="reset()">RESET</button>'
+		winScn.innerHTML += '<br><button class="view-sb" onclick="scBd()">SCOREBOARD</button>'
+		points[flag]++;
 	} else if (checkTie()) {
-		display.innerHTML = "Match Tie";
+		winScn.style.display = "block";
+		winScn.innerHTML = "Match Tie";
+		winScn.innerHTML += '<br><button id="but" onclick="reset()">RESET</button>'
+		winScn.innerHTML += '<br><button class="view-sc" onclick="scBd()">SCOREBOARD</button>'
 	}
-	flag = flag == 1 ? 0 : 1; //ALternate X and O
+	else
+		flag = flag == 1 ? 0 : 1; //ALternate X and O
 }
