@@ -1,6 +1,6 @@
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
 	return "Scoreboard will reset. Are you sure you want to reload page?";
-  };
+};
 
 flag = 1;
 
@@ -27,8 +27,10 @@ let p1Name, p2Name
 function start() {
 	const startS = document.getElementById("start-screen");
 	const mainS = document.getElementById("main");
+
 	startS.style.display = "none";
 	mainS.style.display = "block";
+	document.getElementById("scoreboard").style.display = "none";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -39,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		// Access individual form fields by name
 		p1Name = formData.get("p-1");
 		p2Name = formData.get("p-2");
-		if(p1Name==""){
+		if (p1Name == "") {
 			p1Name = "Player 1";
 		}
-		if(p2Name==""){
+		if (p2Name == "") {
 			p2Name = "Player 2";
 		}
 		const player1Label = document.getElementById("player1-label");
@@ -54,6 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		start();
 	});
 });
+
+function retGame(){
+	document.getElementById("leaderboard-container").style.display = "none";
+	document.getElementById("start-screen").style.display = "block";
+}
 
 function reset() {
 	//To reset cells and restart
@@ -67,6 +74,7 @@ function reset() {
 		document.getElementById("print").innerHTML = "";
 		let winScn = document.getElementById("win-screen");
 		winScn.style.display = "none";
+		document.getElementById("scoreboard").style.display = "none";
 	}
 	b = ["", "", "", "", "", "", "", "", ""];
 }
@@ -80,6 +88,36 @@ function scBd() {
 	document.getElementById("nameP2").innerHTML = p2Name;
 	document.getElementById("pointsP1").innerHTML = points[1];
 	document.getElementById("pointsP2").innerHTML = points[0];
+}
+
+function loadLeaderboard() {
+	document.getElementById("start-screen").style.display = "none";
+	document.getElementById("leaderboard-container").style.display = "block";
+
+	fetch('leaderboard.json') // Replace 'leaderboard.json' with the path to your JSON file
+		.then((response) => response.json())
+		.then((data) => {
+			const leaderboardTable = document.getElementById('leaderboard-body');
+
+			// Clear the existing leaderboard
+			leaderboardTable.innerHTML = '';
+
+			// Sort the leaderboard data by score in descending order
+			data.leaderboard.sort((a, b) => b.score - a.score);
+
+			// Update the leaderboard in the HTML as a table
+			data.leaderboard.forEach((entry, index) => {
+				const row = leaderboardTable.insertRow();
+				const rankCell = row.insertCell(0);
+				const playerCell = row.insertCell(1);
+				const scoreCell = row.insertCell(2);
+
+				rankCell.textContent = index + 1;
+				playerCell.textContent = entry.player;
+				scoreCell.textContent = entry.score;
+			});
+		})
+		.catch((error) => console.error('Error loading leaderboard data: ' + error));
 }
 
 function lock(x, y, z) {
@@ -131,7 +169,7 @@ function tic(n) {
 	let winScn = document.getElementById("win-screen");
 
 	if (Win(player)) {
-		let winner =(player=="X")?p1Name:p2Name;
+		let winner = (player == "X") ? p1Name : p2Name;
 		winScn.style.display = "block";
 		winScn.innerHTML = winner + " won";
 		winScn.innerHTML += '<br><button id="but" onclick="reset()">RESET</button>'

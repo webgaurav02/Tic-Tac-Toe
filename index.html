@@ -21,13 +21,14 @@
 	<h2>by EventListeners Pro Max</h2>
 	<div id="start-screen">
 		<form id="players" action="POST">
-			<label class="name-label"for="p-1">Player 1:</label><br />
+			<label class="name-label" for="p-1">Player 1:</label><br />
 			<input type="text" class="name-in" id="p-1" name="p-1" placeholder="Player 1" /><br /><br />
 			<label class="name-label" for="p-2">Player 2:</label><br />
 			<input type="text" class="name-in" id="p-2" name="p-2" placeholder="Player 2" /><br /><br />
 			<p class="note">Note: Player names are not required fields. You may start directly</p>
 			<input type="submit" value="Start Game" id="start-but" />
 		</form>
+		<a onclick="loadLeaderboard()" id="load-lead">view Leaderboard</a>
 	</div>
 	<div id="main">
 		<p id="ins">
@@ -66,7 +67,7 @@
 
 	<!-- Scoreboards -->
 	<div id="scoreboard">
-		<div id="table-con">
+		<div class="table-con">
 			<table id="scoretable">
 				<tr>
 					<th id="nameP1">Player 1</th>
@@ -79,6 +80,25 @@
 			</table>
 		</div>
 		<button id="ret-but" onclick="reset()">RETURN TO GAME</button>
+	</div>
+
+	<!-- Leaderboard -->
+	<div id="leaderboard-container">
+		<h2>Leaderboard</h2>
+		<div class="table-con">
+			<table id="leaderboard-table">
+				<thead>
+					<tr>
+						<th>Rank</th>
+						<th>Player</th>
+						<th>Score</th>
+					</tr>
+				</thead>
+				<tbody id="leaderboard-body">
+				</tbody>
+			</table>
+		</div>
+		<button class="view-sb" id="ret-game" onclick="retGame()">RETURN</button>
 	</div>
 	<script src="index.js"></script>
 </body>

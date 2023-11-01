@@ -323,7 +323,7 @@ form {
   justify-content: center;
 }
 
-#table-con {
+.table-con {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -376,4 +376,37 @@ table, th, td {
   border: 1px solid rgb(255, 255, 255);
   border-collapse: collapse;
   width: 300px;
+}
+
+
+#leaderboard-container{
+  display: none;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+#load-lead{
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  font-weight: 200;
+}
+
+@media only screen and (max-width: 600px) {
+  button{
+    width: 60%;
+  }
+  #but {
+    width: 60%;
+  }
+  #start-but{
+    width: 60%;
+  }
+  #ret-but{
+    width: 60%;
+  }
+  .view-sb{
+    width: 60%;
+  }
 }
