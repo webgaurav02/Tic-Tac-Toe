@@ -1,17 +1,66 @@
+/* html{
+  background: url("./images/start-bk.jpeg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
 body {
+  position: relative; /* Set the body to relative positioning */
+  background: url("./images/start-bk.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   margin: 0px;
   text-align: center;
   font-family: "Poppins", sans-serif;
+  color:white;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Adjust the last value for transparency (0.5 for semi-transparent black) */
+  z-index: -1; /* Place the overlay behind the content */
+}
+
+.note{
+  font-size: 0.7rem;
+  font-weight: 200;
+  margin-bottom: 30px;
 }
 
 h1 {
-  font-size: 3rem;
-  color: orangered;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: rgb(23, 135, 255);
   margin-bottom: -20px;
 }
 
+.name-in{
+  padding: 10px;
+  color: white;
+  border-radius: 50px;
+  margin-bottom: 50px;
+  font-size: 1.2rem;
+  background-color: black;
+  border: 1px solid rgb(255, 255, 255);
+  border-collapse: collapse;
+}
+
+.name-label{
+  color: rgb(146, 215, 255);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 h2 {
-  color: black;
+  color: rgb(255, 255, 255);
   font-size: 1.2rem;
   margin-bottom: 0;
 }
@@ -31,6 +80,7 @@ p {
 }
 
 .cell {
+  color: white;
   font-family: "Poppins", sans-serif;
   width: 100px;
   height: 100px;
@@ -40,8 +90,8 @@ p {
   font-size: 24px;
   text-align: center;
   cursor: pointer;
-  background-color: beige;
-  border: 1px solid gray;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .cell:active {
@@ -58,7 +108,7 @@ button {
   border-radius: 8px;
 
   background-color: whitesmoke;
-  color: dodgerblue;
+  color: rgb(0, 0, 0);
   font-size: 20px;
   cursor: pointer;
 }
@@ -77,11 +127,11 @@ button {
   /* font-size: 20px; */
   /* cursor: pointer; */
   appearance: none;
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
-  border-radius: 15px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #000000;
   cursor: pointer;
   display: inline-block;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -99,7 +149,7 @@ button {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 100%;
+  width: 20%;
   will-change: transform;
 }
 button:disabled {
@@ -107,7 +157,7 @@ button:disabled {
 }
 
 button:hover {
-  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
 
@@ -118,7 +168,7 @@ button:active {
 
 /* Player turn space */
 #print {
-  color: dodgerblue;
+  color: #1e90ff;
   font-size: 20px;
 }
 
@@ -152,11 +202,11 @@ form {
 } */
 #start-but {
   appearance: none;
-  background-color: #000000;
-  border: 2px solid #1A1A1A;
-  border-radius: 15px;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #000000;
   cursor: pointer;
   display: inline-block;
   font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
@@ -174,7 +224,7 @@ form {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 30%;
+  width: 20%;
   will-change: transform;
 }
 
@@ -205,7 +255,7 @@ form {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   margin: 0;
-  padding-top: 20%;
+  padding-top: 15%;
   display: none;
   position: absolute;
   top: 0;
@@ -227,7 +277,45 @@ form {
 }
 
 #ret-but {
-  width: auto;
+  appearance: none;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+}
+
+#ret-but:disabled {
+  pointer-events: none;
+}
+
+#ret-but:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+#ret-but:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 #scoretable {
@@ -242,8 +330,50 @@ form {
   height: 500px;
 }
 
+.view-sb {
+  appearance: none;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 20%;
+  will-change: transform;
+}
+
+.view-sb:disabled {
+  pointer-events: none;
+}
+
+.view-sb:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.view-sb:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid rgb(255, 255, 255);
   border-collapse: collapse;
   width: 300px;
 }

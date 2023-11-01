@@ -1,3 +1,7 @@
+window.onbeforeunload = function() {
+	return "Scoreboard will reset. Are you sure you want to reload page?";
+  };
+
 flag = 1;
 
 const winningCombos = [
@@ -58,7 +62,7 @@ function reset() {
 		let ele = document.getElementById("b" + (i + 1));
 		ele.disabled = false;
 		ele.value = "";
-		ele.style.color = "black";
+		ele.style.color = "white";
 		flag = 1;
 		document.getElementById("print").innerHTML = "";
 		let winScn = document.getElementById("win-screen");
