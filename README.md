@@ -4,7 +4,7 @@
 
 ## About
 
-Welcome to the EventListeners Pro Max Tic Tac Toe Game! This project is our entry for the first round of the "Game of Codes" competition, a part of the annual technical fest, Cognitia, at the National Institute of Technology Meghalaya. Our team members, Gaurav Joshi, Vanshika Sarraf, and Gunnu Lavanya, have worked hard to create this fun and engaging Tic Tac Toe game using HTML, CSS, and JavaScript.
+Welcome to the EventListeners Pro Max Tic Tac Toe Game! This project is our entry for the first round of the "Game of Codes" competition, a part of the annual technical fest, Cognitia, at the National Institute of Technology Meghalaya. This fun and engaging Tic Tac Toe game is built using HTML, CSS, and JavaScript.
 
 ## How to Play
 
@@ -51,13 +51,7 @@ git clone https://github.com/webgaurav02/TicTacToe-EventListenersProMax.git
 ```
 
 2. Open the `index.html` file in your web browser to start playing the game.
-
-## Authors
-
-- Gaurav Joshi
-- Vanshika Sarraf
-- Gunnu Lavanya
-
+   
 
 ## Acknowledgments
 
